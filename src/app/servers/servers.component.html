@@ -1,8 +1,19 @@
+<label>Server Name</label>
+<input 
+    type="text" 
+    class="form-control"
+    (input)="onUpdateServerName($event)">
+    <p>{{serverName}}</p>
 <button 
     class="btn btn-primary"
-    [disabled]="!allowNewServer">
+    [disabled]="!allowNewServer" 
+    (click)="onCreateServer()"> <!-- event binding -->
     Add Server
 </button>
+<p>{{serverCreationStatus}}</p>  <!--string interpolation-->
+<p [innerText]="allowNewServer"></p>
 <app-server></app-server>
 
 <!-- [square bracket]: we are using property binding, that we want to dynamically bind some property  -->
+<!-- [disabled]="!allowNewServer"  -> data binding -->
+<!-- $event : a reserved variable name which gives us access to event data-->
